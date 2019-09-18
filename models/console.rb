@@ -34,7 +34,7 @@ album3 = Album.new({
 
 album4 = Album.new({
   'album_name' => 'Midnight Shake',
-  'genre' => 'country',
+  'genre' => 'Country',
   'artist_id' => artist2.id
   })
 
@@ -48,7 +48,12 @@ artist1.albums_by_artist_id
 artist2.albums_by_artist_id
 
 album3.artist
-album1.artist
+
+artist1.artist_by_artist_id
+
+album3.album_by_album_id
+# album1.delete
+# artist1.delete
 
 binding.pry
 

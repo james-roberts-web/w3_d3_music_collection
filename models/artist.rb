@@ -34,5 +34,24 @@ class Artist
     return hashes_arr.map{|album|Album.new(album)}
   end
 
+  def artist_by_artist_id
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [@id]
+    hashes_arr = SqlRunner.run(sql, values)
+    return hashes_arr.map{|artist|Artist.new(artist)}
+  end
+
+  def update
+    sql = "UPDATE artists
+    SET artist_name=$1 WHERE id=$2"
+    values = [@artist_name, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def delete
+    sql = "DELETE FROM artists WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
 
 end
